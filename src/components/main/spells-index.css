@@ -1,0 +1,23 @@
+select {
+  border: none;
+  
+}
+select:focus {
+  border: none;
+  
+}
+
+.index-option {
+  padding: 8px 0;
+}
+.index-option:hover {
+  background-color: rgb(118, 202, 118);
+}
+.index-option:checked {
+  background-color: green;
+  color: pink;
+}
+.index-option:active {
+  background-color: green;
+  color: pink;
+}
