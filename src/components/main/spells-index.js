@@ -45,17 +45,26 @@ class SpellsIndex  extends Component {
       .then(response => response.json())
       .then(data => {
         this.setState({spellToShow: data})
+        
       })
   }
   bringSpellListByClass() {
+    
     let selectClass = document.querySelector('.index-classes')
     let classSelected = this.state.classes.find(oneClass => oneClass.name === selectClass.value)
       fetch('https://www.dnd5eapi.co' + classSelected.url + '/spells')
       .then(response => response.json())
       .then(data => {
         this.setState({spellListByClass: data.results})
+        
+        
       })
   }
+/*   optionsColor() {
+    let options = document.querySelectorAll('.index-option');
+    options.style.backgroundColor = 'yellow';
+          
+  } */
 
   render () {
     let spellsByClass
@@ -69,22 +78,34 @@ class SpellsIndex  extends Component {
       classes = ['Loading...']
     } else {
       classes = this.state.classes
-    }    
+    } 
+
+    // check if there are spells for the class
+    let spellsSelector
+    if (this.state.spellListByClass.length < 2) {
+      spellsSelector = <p className='p-no-spells'>-This class has no spells-</p>
+    } else {
+      spellsSelector = (<select size='10' onChange={()=>this.bringSpellInfo()} className='index-spells select'>
+      {spellsByClass.map((item, i) => <option key={i} className='index-option' /* onClick={()=> this.optionsColor()} */>{item.name}</option>)}
+    </select>);
+    }
+
     return (
-      <>
-        <select size='10' onChange={()=>this.bringSpellListByClass()} className='index-classes'>
+      <article className='article'>
+        <section className='select-section'>
+        <select size='10' onChange={()=>this.bringSpellListByClass()} className='index-classes select'>
           {classes.map((item, i) => <option key={i} className='index-option'>{item.name}</option>)}
         </select>
+        {spellsSelector}
+        </section>
+        <section className='info-section'>
+          <h3>{this.state.spellToShow.name}</h3>
+          <p className='pInfo'>{this.state.spellToShow.desc}</p>
+        </section>
+        
 
-        <select size='10' onChange={()=>this.bringSpellInfo()} className='index-spells'>
-          {spellsByClass.map((item, i) => <option key={i} className='index-option'>{item.name}</option>)}
-        </select>
 
-        <h3>{this.state.spellToShow.name}</h3>
-        <p className='pInfo'>{this.state.spellToShow.desc}</p>
-
-
-      </>
+      </article>
     )
   }
 }

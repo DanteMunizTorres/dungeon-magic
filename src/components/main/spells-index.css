@@ -1,14 +1,43 @@
-select {
-  border: none;
-  
+.article {
+  padding: 16px;
 }
-select:focus {
-  border: none;
-  
+
+.select-section {
+  display: flex;
 }
+
+
+.select {
+  border: 0;
+  outline: none;
+}
+
+.index-classes {
+  width: 35%;
+  padding: 8px;
+}
+.index-spells {
+  width: 65%;
+  padding: 8px;
+}
+
+.select::-webkit-scrollbar {
+  width: 15px;
+  background-color: rgb(24, 23, 23);
+  border-radius: 5px;
+  border: 1px solid rgb(118, 202, 118);
+}
+.select::-webkit-scrollbar-thumb {
+  border: 1px solid rgb(118, 202, 118);
+  border-radius: 5px;
+} 
+
+
 
 .index-option {
   padding: 8px 0;
+  background-color: rgb(24, 23, 23);
+
 }
 .index-option:hover {
   background-color: rgb(118, 202, 118);
@@ -17,7 +46,20 @@ select:focus {
   background-color: green;
   color: pink;
 }
-.index-option:active {
+/* .index-option:focus {
   background-color: green;
   color: pink;
+} */
+
+.index-option:active {
+  font-weight: bold;
+}
+
+.p-no-spells {
+  font-size: 1.8rem;
+  font-weight: bold;
+  padding: 16px;
+  width: 65%;
+  text-align: center;
+  align-self: center;
 }
