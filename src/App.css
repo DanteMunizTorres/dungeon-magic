@@ -9,6 +9,17 @@ html {
 
 
 
+/* para tener tod en modo oscuro */
+body {
+  background-color: rgb(53, 52, 52);
+  color: rgb(231, 227, 227);
+}
+select {
+  background-color: rgb(53, 52, 52);
+  color: rgb(231, 227, 227);
+}
+
+
 
 
 
