@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import './spells-index.css'
+import PInfo from './pInfo'
 
 class SpellsIndex  extends Component {
 
@@ -85,9 +86,41 @@ class SpellsIndex  extends Component {
     if (this.state.spellListByClass.length < 2) {
       spellsSelector = <p className='p-no-spells'>-This class has no spells-</p>
     } else {
-      spellsSelector = (<select size='10' onChange={()=>this.bringSpellInfo()} className='index-spells select'>
-      {spellsByClass.map((item, i) => <option key={i} className='index-option' /* onClick={()=> this.optionsColor()} */>{item.name}</option>)}
-    </select>);
+      spellsSelector =  <select size='10' onChange={()=>this.bringSpellInfo()} className='index-spells select'>
+                          {spellsByClass.map((item, i) => <option key={i} className='index-option' /* onClick={()=> this.optionsColor()} */>{item.name}</option>)}
+                        </select>;
+    }
+
+    //spells info p
+
+
+    let damage
+    let damageInfo
+    if (this.state.spellToShow.damage) {
+      let diceDamage = Object.values(this.state.spellToShow.damage.damage_at_slot_level)[0]
+      damageInfo = `${this.state.spellToShow.damage.damage_type.name}, ${diceDamage}`
+      damage = <pInfo info={damageInfo}/>
+    }
+
+
+    let spellInfo
+    if (this.state.spellToShow === '') {
+      spellInfo = <p className='p-no-spells'>-There is no info to show you-</p>
+    } else {
+      console.log(this.state.spellToShow)
+      console.log(this.state.spellToShow.school)
+      spellInfo = <>
+                  <h3 className='info-section__name'>{this.state.spellToShow.name}</h3>
+                  <PInfo info={'Level: ' + this.state.spellToShow.level}/>
+                  <PInfo info={'Range: ' + this.state.spellToShow.range}/>
+                  {damage}
+                  <PInfo info={'Duration: ' + this.state.spellToShow.duration}/>
+                  <PInfo info={'Casting time: ' + this.state.spellToShow.casting_time}/>
+                  <p className='pInfo'>{this.state.spellToShow.desc}</p>
+                  
+                  {/* {<PInfo info={this.state.spellToShow.school.name}/>} */}
+                  {/* <PInfo info={this.state.spellToShow.components.map(comp => comp + ' ')}/> */}
+                  </>
     }
 
     return (
@@ -98,9 +131,18 @@ class SpellsIndex  extends Component {
         </select>
         {spellsSelector}
         </section>
+
         <section className='info-section'>
-          <h3>{this.state.spellToShow.name}</h3>
+{/*           <h3 className='info-section__name'>{this.state.spellToShow.name}</h3>
+          <pInfo info={this.state.spellToShow.level}/>
+          <pInfo info={this.state.spellToShow.range}/>
+          {damage}
+          <pInfo info={this.state.spellToShow.duration}/>
+          <pInfo info={this.state.spellToShow.casting_time}/>
           <p className='pInfo'>{this.state.spellToShow.desc}</p>
+          <pInfo info={this.state.spellToShow.school.name}/>
+          <pInfo info={this.state.spellToShow.components.map(comp => comp + ' ')}/> */}
+          {spellInfo}
         </section>
         
 
