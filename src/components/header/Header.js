@@ -1,10 +1,10 @@
-
+import './Header.css'
 
 function Header () {
   return (
-    <header>
-      <h1>Dungeon Magic</h1>
-      <h4>Find your spell</h4>
+    <header className='main-header'>
+      <h1 className='header__title'>Dungeon Magic</h1>
+      <h4 className='header__subtitle'>Find your spell</h4>
     </header>
   )
 }

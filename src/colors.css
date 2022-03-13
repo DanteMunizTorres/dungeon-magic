@@ -1,0 +1,8 @@
+/* CSS HEX */
+:root {
+  --darkest: rgb(24, 24, 23);
+  --dark: #946365ff;
+  --white: rgb(218, 224, 224);
+  --advise: #ff776bff;
+  --isokey: rgb(32, 151, 94);
+}

@@ -1,0 +1,31 @@
+.footer-title, .footer-subtitle {
+  text-align: center;
+}
+
+.footer-subtitle a {
+  color: var(--isokey);
+  text-decoration: underline 1px;
+}
+
+.main-footer {
+  padding: 8px 0;
+  border-top: 1px solid var(--isokey);
+
+}
+
+@media (min-width: 768px) {
+
+  .main-footer {
+    
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+
+    
+  }
+
+  .footer-title, .footer-subtitle {
+    text-align: center;
+    margin: 16px;
+  }
+}

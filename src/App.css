@@ -1,3 +1,5 @@
+@import './colors.css';
+
 * {
   margin: 0;
   padding: 0;
@@ -6,17 +8,29 @@
 html {
   font-size: 62.5;
 }
+html::-webkit-scrollbar {
+  width: 10px;
+  background-color: var(--darkest);
+  border-radius: 5px;
+  border: 1px solid var(--isokey);
+}
+html::-webkit-scrollbar-thumb {
+  border: 1px solid var(--darkest);
+  border-radius: 5px;
+  background-color: var(--isokey)/*  opacity(0.5) */;
+} 
 
 
 
 /* para tener tod en modo oscuro */
 body {
-  background-color: rgb(24, 23, 23);
-  color: rgb(231, 227, 227);
+  background-color: var(--darkest);
+  color: var(--white);
+  height: 100%;
 }
 select {
-  background-color: rgb(24, 23, 23);
-  color: rgb(231, 227, 227);
+  background-color: var(--darkest);
+  color: var(--white);
 }
 
 
