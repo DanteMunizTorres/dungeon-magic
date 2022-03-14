@@ -8,7 +8,7 @@
   padding: 4px 0;
   border-top: 1px solid var(--isokey);
   border-bottom: 1px solid var(--isokey);
-  height: auto;
+  min-height: 300px;
 }
 
 
@@ -16,6 +16,7 @@
   border: 0;
   outline: none;
   font-size: 1.2rem;
+  height: auto;
 }
 .index-classes {
   width: 40%;
@@ -60,10 +61,7 @@
   background-color: var(--isokey);
   color: white;
 }
-/* .index-option:focus {
-  background-color: green;
-  color: pink;
-} */
+
 
 option:checked {
   box-shadow: 0 0 10px 100px var(--isokey) inset;
@@ -114,14 +112,6 @@ option:checked {
   color: var(--advise);
   font-weight: bold;
 }
-
-
-@media (max-height:480px) { 
-  .select
-   { min-height: 200px; 
-     size: 10;
-   }
-  }
 
 
 
