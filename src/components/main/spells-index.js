@@ -175,7 +175,7 @@ class SpellsIndex  extends Component {
 
     return (
       <article className='main-article'>
-        <section className='select-section'>
+        <section className='select-section' style="height: auto">
         <select size='10' onChange={()=> this.bringSpellListByClass()} className='index-classes select'>
           {classes.map((item, i) => <option key={i} className='index-option'>{item.name}</option>)}
         </select>
