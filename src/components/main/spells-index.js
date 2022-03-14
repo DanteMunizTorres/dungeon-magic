@@ -179,7 +179,7 @@ class SpellsIndex  extends Component {
 {/*           <label for='index-classes' className='index-classes__label'>
             -Pick a class-
           </label> */}
-          <select multiple id='index-classes' size='10' onChange={()=> this.bringSpellListByClass()} className='index-classes select'>
+          <select placeholder='Select a class' id='index-classes' size='10' onChange={()=> this.bringSpellListByClass()} className='index-classes select'>
             {classes.map((item, i) => <option key={i} className='index-option'>{item.name}</option>)}
           </select>
           {spellsSelector}
