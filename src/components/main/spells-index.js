@@ -37,7 +37,7 @@ class SpellsIndex  extends Component {
 
   bringSpellInfo(){
     let select = document.querySelector('.index-spells')
-    let spellSelected = this.state.data.find(spell=> spell.name === select.value)
+    let spellSelected = this.state.data.find(spell=> spell.index === select.value)
       fetch('https://www.dnd5eapi.co' + spellSelected.url)
       .then(response => response.json())
       .then(data => {
@@ -46,8 +46,9 @@ class SpellsIndex  extends Component {
   }
   bringSpellListByClass() {
     let selectClass = document.querySelector('.index-classes')
+    console.log(selectClass.value);
     let selectSpell = document.querySelector('.index-spells')
-    let classSelected = this.state.classes.find(oneClass => oneClass.name === selectClass.value)
+    let classSelected = this.state.classes.find(oneClass => oneClass.index === selectClass.value)
 
       fetch('https://www.dnd5eapi.co' + classSelected.url + '/spells')
       .then(response => response.json())
@@ -79,7 +80,7 @@ class SpellsIndex  extends Component {
       
     } else {
       spellsSelector =  <select size='10' onChange={()=>this.bringSpellInfo()} className='index-spells select'>
-                          {spellsByClass.map((item, i) => <option key={i} className='index-option' /* onClick={()=> this.optionsColor()} */>{item.name}</option>)}
+                          {spellsByClass.map((item, i) => <option key={i} className='index-option' value={item.index}>{item.name}</option>)}
                         </select>;
     }
 
@@ -187,7 +188,7 @@ class SpellsIndex  extends Component {
 
         <section className='select-section'>
           <select placeholder='Select a class' id='index-classes' size='10' onChange={()=> this.bringSpellListByClass()} className='index-classes select'>
-            {classes.map((item, i) => <option key={i} className='index-option'>{item.name}</option>)}
+            {classes.map((item, i) => <option key={i} className='index-option' value={item.index}>{item.name}</option>)}
           </select>
           {spellsSelector}
         </section>
