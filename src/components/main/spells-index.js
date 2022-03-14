@@ -176,10 +176,10 @@ class SpellsIndex  extends Component {
     return (
       <article className='main-article'>
         <section className='select-section'>
-          <label for='index-classes' className='index-classes__label'>
+{/*           <label for='index-classes' className='index-classes__label'>
             -Pick a class-
-          </label>
-          <select id='index-classes' size='10' onChange={()=> this.bringSpellListByClass()} className='index-classes select'>
+          </label> */}
+          <select multiple id='index-classes' size='10' onChange={()=> this.bringSpellListByClass()} className='index-classes select'>
             {classes.map((item, i) => <option key={i} className='index-option'>{item.name}</option>)}
           </select>
           {spellsSelector}
