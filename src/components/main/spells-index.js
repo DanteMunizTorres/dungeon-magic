@@ -175,15 +175,23 @@ class SpellsIndex  extends Component {
 
     return (
       <article className='main-article'>
-        <section className='select-section'>
-{/*           <label for='index-classes' className='index-classes__label'>
+          <div className='index__label-wrapper'>
+          <label htmlFor='index-classes' className='index-classes__label'>
             -Pick a class-
-          </label> */}
+          </label>   
+          <label className='index-classes__label'>
+              -Pick a spell-
+          </label>    
+          </div>
+           
+
+        <section className='select-section'>
           <select placeholder='Select a class' id='index-classes' size='10' onChange={()=> this.bringSpellListByClass()} className='index-classes select'>
             {classes.map((item, i) => <option key={i} className='index-option'>{item.name}</option>)}
           </select>
           {spellsSelector}
         </section>
+
 
         <section className='info-section'>
           {spellInfo}
