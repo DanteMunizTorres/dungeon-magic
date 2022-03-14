@@ -19,6 +19,17 @@
   height: auto;
   size: 10;
 }
+
+.index-classes__label {
+  cursor: pointer;
+  font-size: 1.4rem;
+  text-decoration: underline;
+  color: var(--isokey);
+  display: block;
+}
+
+
+
 .index-classes {
   width: 40%;
   padding-left: 8px;
